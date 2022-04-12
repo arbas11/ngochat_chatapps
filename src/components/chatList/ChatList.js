@@ -51,7 +51,7 @@ function ChatList({
         message={"contact added"}
         data={{
           name: contactAddData.name,
-          number: contactAddData.number,
+          email: contactAddData.email,
           tittle: "update",
         }}
       />

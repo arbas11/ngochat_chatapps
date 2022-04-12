@@ -3,7 +3,7 @@ import { Modal, ModalBody, ModalHeader } from "reactstrap";
 import "../../styles/bootstrap.scss";
 
 function AlertModal({ openAlertModal, setOpenAlertModal, message, data }) {
-  const { name, number, tittle } = data;
+  const { name, email, tittle } = data;
   return (
     <Modal
       isOpen={openAlertModal}
@@ -16,7 +16,7 @@ function AlertModal({ openAlertModal, setOpenAlertModal, message, data }) {
           contact name : <span>{`  ${name}`}</span>
         </div>
         <div className="deleted-contact">
-          contact number: <span>{`  ${number}`}</span>
+          contact email: <span>{`  ${email}`}</span>
         </div>
       </ModalBody>
     </Modal>
