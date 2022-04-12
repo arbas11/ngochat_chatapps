@@ -1,0 +1,31 @@
+.new-contact-input {
+  background-color: #e6e5ea;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: 100%;
+    padding-right: 0;
+  }
+}
+.contact-add-error{
+  color:red;
+}
+.btn-submit {
+  span {
+    flex: 1 1 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.btn-cancel {
+  span {
+    flex: 1 1 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

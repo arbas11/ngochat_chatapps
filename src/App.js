@@ -1,23 +1,57 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.scss";
+import Nav from "./components/nav/Nav";
+import io from "socket.io-client";
+import ChatBody from "./components/chatBody/ChatBody";
+import LoginForm from "./components/login/LoginForm";
+import useUserAuth from "./hooks/useAuth";
+import { baseUrl } from "./service/baseUrl";
 
+const socketUrl = baseUrl;
 function App() {
+  const [userData, setUserData] = useState();
+  const [socket, setSocket] = useState();
+  const [contactSelected, setContactSelected] = useState(false);
+  const { signInWithGoogle, token, isAuth, setIsAuth, userLogin } =
+    useUserAuth();
+
+  console.log("dari app test user login", userLogin);
+  useEffect(() => {
+    if (userLogin) {
+      setUserData(userLogin);
+    }
+  }, [userLogin]);
+
+  useEffect(() => {
+    if (userLogin) {
+      const userEmail = userLogin.userEmail;
+      setSocket(
+        io(socketUrl, {
+          query: { userEmail },
+        })
+      );
+    }
+  }, [userLogin]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="__main">
+      {isAuth ? (
+        <>
+          <Nav setContactSelected={setContactSelected} />
+          <ChatBody
+            userData={userData}
+            setUserData={setUserData}
+            setIsAuth={setIsAuth}
+            token={token}
+            socket={socket}
+            setSocket={setSocket}
+            contactSelected={contactSelected}
+            setContactSelected={setContactSelected}
+          />
+        </>
+      ) : (
+        <LoginForm signInWithGoogle={signInWithGoogle} />
+      )}
     </div>
   );
 }
