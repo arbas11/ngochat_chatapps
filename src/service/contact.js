@@ -63,9 +63,6 @@ export const addContactToUser = async (
 };
 
 export const deleteContact = (userEmail, contactEmail, userId, token) => {
-  console.log(
-    `ini user email ${userEmail}, ini contact email ${contactEmail}, ini user id ${userId}`
-  );
   return axios.post(
     DELETEONECONTACTURL,
     {

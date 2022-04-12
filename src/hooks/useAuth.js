@@ -10,7 +10,6 @@ import {
 import { baseUrl } from "../service/baseUrl";
 
 const LOGINURL = baseUrl + "api/login";
-console.log("base url", baseUrl);
 
 const firebaseConfig = {
   apiKey: "AIzaSyCLjMssma2A0VgITiHpUzCbCjFsnlLqNns",
