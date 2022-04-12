@@ -15,7 +15,6 @@ function App() {
   const { signInWithGoogle, token, isAuth, setIsAuth, userLogin } =
     useUserAuth();
 
-  console.log("dari app test user login", userLogin);
   useEffect(() => {
     if (userLogin) {
       setUserData(userLogin);
