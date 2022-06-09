@@ -12,13 +12,12 @@ import { baseUrl } from "../service/baseUrl";
 const LOGINURL = baseUrl + "api/login";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCLjMssma2A0VgITiHpUzCbCjFsnlLqNns",
-  authDomain: "final-project-dibimbing.firebaseapp.com",
-  projectId: "final-project-dibimbing",
-  storageBucket: "final-project-dibimbing.appspot.com",
-  messagingSenderId: "743693470352",
-  appId: "1:743693470352:web:2d6b20b134d1ac2bd3a615",
-  measurementId: "G-TPEY7Y25FH",
+  apiKey: "AIzaSyAPEpsysthLki6lxiyiGoBp1a3d9o3toj8",
+  authDomain: "ngochat-1e901.firebaseapp.com",
+  projectId: "ngochat-1e901",
+  storageBucket: "ngochat-1e901.appspot.com",
+  messagingSenderId: "1025377367964",
+  appId: "1:1025377367964:web:36595f01a54bc212143a59",
 };
 
 const app = initializeApp(firebaseConfig);
@@ -49,6 +48,7 @@ export default function useUserAuth() {
       setUserLogin(res.data);
     } catch (error) {
       if (error.response) {
+        console.log(error.response);
       }
     }
   };
